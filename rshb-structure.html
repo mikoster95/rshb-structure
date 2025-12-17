@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Структура Руководства Правления</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .ceo-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border-left: 8px solid #667eea;
+        }
+
+        .ceo-box h2 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .ceo-box .position {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .manager-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .manager-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .manager-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .manager-header h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .manager-header .position {
+            font-size: 0.9em;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .manager-body {
+            padding: 25px;
+        }
+
+        .dept-list {
+            list-style: none;
+        }
+
+        .dept-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            font-size: 0.95em;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .dept-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .dept-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tree-line {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .tree-line::before {
+            content: "";
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.8);
+            margin: 0 auto 15px;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .ceo-box {
+                max-width: 100%;
+            }
+
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Структура Руководства Правления</h1>
+
+        <div class="org-chart">
+            <!-- Председатель -->
+            <div class="manager-card ceo-card">
+    <div class="manager-header">
+        <img src="photo1.jpg" alt="Листов Борис Павлович" class="photo">
+        <h3>Листов Борис Павлович</h3>
+        <div class="position">Председатель Правления</div>
+    </div>
+    <div class="manager-body">
+        <ul class="dept-list">
+            <li>Аппарат Председателя Правления</li>
+            <li>Аппарат Председателя Наблюдательного совета</li>
+            <li>Департамент стратегии и развития розничного бизнеса</li>
+            <li>Департамент розничного кредитования</li>
+            <li>Департамент розничных транзакционных и сберегательных продуктов</li>
+            <li>Департамент сети и розничных продаж</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- Остальные руководители -->
+            <div class="departments-grid">
+                <!-- 2. Жачкина -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8vM.jpg" alt="Жачкина Ирина Владимировна" class="photo">
+                        <h3>Жачкина Ирина Владимировна</h3>
+                        <div class="position">Член Правления, Первый заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент маркетинга</li>
+                            <li>Департамент общественных связей</li>
+                            <li>Центр событийного маркетинга</li>
+                            <li>Департамент транзакционных продуктов и сервисов</li>
+                            <li>Департамент развития транзакционного бизнеса</li>
+                            <li>Департамент цифрового корпоративного бизнеса</li>
+                            <li>Департамент крупного бизнеса</li>
+                            <li>Департамент по работе с активами</li>
+                            <li>Департамент малого и среднего бизнеса</li>
+                            <li>Департамент микробизнеса</li>
+                            <li>Департамент по работе с частным капиталом</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Барабанов -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8vL.jpg" alt="Барабанов Андрей Николаевич" class="photo">
+                        <h3>Барабанов Андрей Николаевич</h3>
+                        <div class="position">Член Правления, заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент экономической безопасности</li>
+                            <li>Департамент внутренней безопасности и режима</li>
+                            <li>Департамент информационной безопасности</li>
+                            <li>Департамент противодействия мошенничеству</li>
+                            <li>Департамент по работе с проблемными активами</li>
+                            <li>Департамент по работе с проблемной задолженностью физических лиц</li>
+                            <li>Служба финансового мониторинга</li>
+                            <li>Первый отдел</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Лесина -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wJ.jpg" alt="Лесина Елена Александровна" class="photo">
+                        <h3>Лесина Елена Александровна</h3>
+                        <div class="position">Член Правления, заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Правовой департамент</li>
+                            <li>Департамент комплаенсконтроля</li>
+                            <li>Департамент корпоративного развития</li>
+                            <li>Департамент документационного обеспечения</li>
+                            <li>Департамент закупочной деятельности</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Романькова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wI.jpg" alt="Романькова Екатерина Алексеевна" class="photo">
+                        <h3>Романькова Екатерина Алексеевна</h3>
+                        <div class="position">Член Правления, заместитель Председателя Правления, главный бухгалтер</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Операционный департамент</li>
+                            <li>Департамент наличного денежного обращения</li>
+                            <li>Единый сервисный центр «Центральный»</li>
+                            <li>Единый сервисный центр «УральскоСибирский»</li>
+                            <li>Единый сервисный центр «Дальневосточный»</li>
+                            <li>Департамент отчетности</li>
+                            <li>Департамент учета и налогообложения</li>
+                            <li>Служба по организации взаимодействия с внешними контролирующими органами</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6. Суворова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wH.jpg" alt="Суворова Ольга Сергеевна" class="photo">
+                        <h3>Суворова Ольга Сергеевна</h3>
+                        <div class="position">Член Правления, заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент рисков</li>
+                            <li>Департамент залогового обеспечения</li>
+                            <li>Центр компетенции по расчету резервов</li>
+                            <li>Департамент методологии и управления кредитным процессом</li>
+                            <li>Департамент внутреннего казначейства</li>
+                            <li>Департамент оформления и контроля кредитных операций</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7. Антонова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wF.jpg" alt="Антонова Ольга Анатольевна" class="photo">
+                        <h3>Антонова Ольга Анатольевна</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент стратегического развития</li>
+                            <li>Департамент финансов и планирования</li>
+                            <li>Департамент по работе с персоналом</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 8. Батурова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wE.jpg" alt="Батурова Елена Анатольевна" class="photo">
+                        <h3>Батурова Елена Анатольевна</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент цифрового бизнеса</li>
+                            <li>Центр развития финансовых технологий</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 9. Елманова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wC.jpg" alt="Елманова Екатерина Владимировна" class="photo">
+                        <h3>Елманова Екатерина Владимировна</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент информационных технологий</li>
+                            <li>Департамент корпоративной архитектуры</li>
+                            <li>Департамент информационных технологий розничного бизнеса</li>
+                            <li>Департамент больших данных</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 10. Константинов -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8wA.jpg" alt="Константинов Денис Вячеславович" class="photo">
+                        <h3>Константинов Денис Вячеславович</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент управления и развития региональной сети</li>
+                            <li>Департамент развития и поддержки корпоративного бизнеса</li>
+                            <li>Центр отраслевых проектов в АПК</li>
+                            <li>Административно-хозяйственный департамент</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 11. Кузнецова -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8v9.jpg" alt="Кузнецова Анна Васильевна" class="photo">
+                        <h3>Кузнецова Анна Васильевна</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент по работе на рынках капитала</li>
+                            <li>Депозитарий</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 12. Ферапонтов -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8v7.jpg" alt="Ферапонтов Михаил Михайлович" class="photo">
+                        <h3>Ферапонтов Михаил Михайлович</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Департамент операций на финансовых рынках</li>
+                            <li>Департамент финансовых институтов и международных расчетов</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 13. Левин -->
+                <div class="manager-card">
+                    <div class="manager-header">
+                        <img src="https://i.yapx.ru/cW8v6.jpg" alt="Левин Сергей Львович" class="photo">
+                        <h3>Левин Сергей Львович</h3>
+                        <div class="position">Заместитель Председателя Правления</div>
+                    </div>
+                    <div class="manager-body">
+                        <ul class="dept-list">
+                            <li>Центр отраслевой экспертизы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
